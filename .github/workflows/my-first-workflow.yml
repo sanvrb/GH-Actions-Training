@@ -1,0 +1,22 @@
+name: Workflow-1
+on:  
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        type: environment
+        required: true
+      Name:
+        description: input the name
+        required: true
+        default: sanvrb
+  schedule:
+          - cron: '*/15 6 6 * *'  
+jobs:  
+  echo-step:
+    environment: testing-2
+    runs-on: ubuntu-latest
+    steps:
+      - run : |
+          echo "hello  ${{inputs.Nam}}"
+          
